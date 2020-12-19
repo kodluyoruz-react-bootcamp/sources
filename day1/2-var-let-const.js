@@ -17,13 +17,16 @@
 // console.log(i);
 
 // 3.
-const pi = 3;
-pi = 3.14;
-console.log(pi);
+// const pi = 3;
+// pi = 3.14;
+// console.log(pi);
 
-const users = ['Mehmet', 'Ahmet', 'Ayşe'];
-users.push('Fatma');
+// const users = ['Mehmet', 'Ahmet', 'Ayşe'];
+// users.push('Fatma');
 
-users = ['Burak'];
+// users = ['Burak'];
 
-console.log(users);
+// console.log(users);
+
+const userName = 'Mehmet';
+console.log(name);
