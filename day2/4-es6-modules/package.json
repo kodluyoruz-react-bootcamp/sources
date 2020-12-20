@@ -14,5 +14,8 @@
 	"devDependencies": {
 		"nodemon": "^2.0.6",
 		"sucrase": "^3.16.0"
+	},
+	"dependencies": {
+		"axios": "^0.21.0"
 	}
 }
