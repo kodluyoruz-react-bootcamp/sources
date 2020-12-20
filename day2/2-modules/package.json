@@ -1,5 +1,5 @@
 {
-	"name": "1-npm",
+	"name": "2-modules",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -8,8 +8,5 @@
 	},
 	"keywords": [],
 	"author": "Mehmet Seven <mehmetseven0@gmail.com>",
-	"license": "ISC",
-	"dependencies": {
-		"slugify": "^1.4.6"
-	}
+	"license": "ISC"
 }

@@ -1,6 +1,6 @@
 const slugify = require("slugify");
 
-const text = "Fenerbahçe Yine Kaybetti";
+const text = "Yine Kaybetti";
 
 const mySlug = slugify(text, "_");
 
