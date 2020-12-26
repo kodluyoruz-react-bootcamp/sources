@@ -5,8 +5,8 @@ import UserList from "./components/UserList";
 function App() {
 	const [isVisible, setIsVisible] = useState(true);
 	const [users, setUsers] = useState([
-		{ name: "Metin", age: 22 },
-		{ name: "Hande", age: 24 },
+		{ id: 1, name: "Metin", age: 22 },
+		{ id: 2, name: "Hande", age: 24 },
 	]);
 
 	const handleToggle = () => setIsVisible(!isVisible);
