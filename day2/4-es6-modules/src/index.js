@@ -32,10 +32,12 @@ async function getData() {
 		const { data: users } = await axios.get(`${ENDPOINT}/users/1`);
 		const { data: posts } = await axios.get(`${ENDPOINT}/posts/1`);
 		const { data: albums } = await axios.get(`${ENDPOINT}/albums/1`);
-		console.log(users, posts, albums);
+		// console.log(users, posts, albums);
+
+		return users;
 	} catch (e) {
 		console.log(e);
 	}
 }
 
-getData();
+console.log(getData());
