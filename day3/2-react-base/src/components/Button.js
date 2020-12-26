@@ -1,13 +1,7 @@
 import PropTypes from "prop-types";
 
-function Button({ text, disabled, styles }) {
-	return (
-		<div>
-			<button disabled={disabled} style={styles}>
-				{text}
-			</button>
-		</div>
-	);
+function Button(props) {
+	return <button {...props}>{props.text}</button>;
 }
 
 Button.propTypes = {
