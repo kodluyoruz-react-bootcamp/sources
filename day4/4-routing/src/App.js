@@ -6,7 +6,6 @@ import styles from "./App.module.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Users from "./pages/Users";
-import UserDetail from "./pages/UserDetail";
 import Error404 from "./pages/Error404";
 
 function App() {
@@ -27,13 +26,16 @@ function App() {
 					</ul>
 				</nav>
 
-				<Switch>
-					<Route path="/" exact component={Home} />
-					<Route path="/about" component={About} />
-					<Route path="/users" exact component={Users} />
-					<Route path="/users/:id" component={UserDetail} />
-					<Route path="*" component={Error404} />
-				</Switch>
+				<div className={styles.content}>
+					<Switch>
+						<Route path="/" exact component={Home} />
+						<Route path="/about" component={About} />
+						<Route path="/users" component={Users} />
+						<Route path="*" component={Error404} />
+					</Switch>
+				</div>
+
+				<div className={styles.footer}>Copyright 2021</div>
 			</Router>
 		</div>
 	);

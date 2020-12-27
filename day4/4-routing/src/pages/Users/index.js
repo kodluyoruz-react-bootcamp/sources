@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
 import axios from "axios";
 
+import UserDetail from "../UserDetail";
+
 function Users() {
+	let { path } = useRouteMatch();
+
 	const [loading, setLoading] = useState(true);
 	const [users, setUsers] = useState([]);
 
@@ -22,6 +26,10 @@ function Users() {
 					<Link to={`/users/${user.id}`}>{user.name}</Link>
 				</li>
 			))}
+
+			<Switch>
+				<Route path={`${path}/:id`} component={UserDetail} />
+			</Switch>
 		</div>
 	);
 }
