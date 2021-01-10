@@ -1,5 +1,7 @@
 import React from "react";
 
+import axios from "axios";
+
 import styles from "./styles.module.css";
 import { useFormik } from "formik";
 import validations from "./validations";
@@ -11,12 +13,15 @@ function RegisterForm() {
 			lastName: "",
 		},
 		onSubmit: (values, bag) => {
-			console.log(values);
-			console.log(bag);
-
-			setTimeout(() => {
-				bag.setSubmitting(false);
-			}, 1000);
+			axios
+				.post("http://localhost:4000/add-user", values)
+				.then(function (response) {
+					console.log(response.data);
+				})
+				.catch(function (error) {
+					console.log(error);
+				})
+				.finally(() => bag.setSubmitting(false));
 		},
 		validationSchema: validations,
 	});
