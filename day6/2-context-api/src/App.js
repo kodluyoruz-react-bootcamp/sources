@@ -1,18 +1,12 @@
 import "./App.css";
 
 import { ThemeProvider } from "./contexts/ThemeContext";
-
-import Button from "./components/Button";
-import Title from "./components/Title";
+import Container from "./Container";
 
 function App() {
 	return (
 		<ThemeProvider>
-			<div className="App">
-				<Button />
-				<hr />
-				<Title />
-			</div>
+			<Container />
 		</ThemeProvider>
 	);
 }
