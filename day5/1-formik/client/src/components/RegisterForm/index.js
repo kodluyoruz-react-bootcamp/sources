@@ -11,6 +11,9 @@ function RegisterForm() {
 		initialValues: {
 			firstName: "",
 			lastName: "",
+			email: "",
+			password: "",
+			passwordConfirm: "",
 		},
 		onSubmit: (values, bag) => {
 			axios
@@ -64,6 +67,57 @@ function RegisterForm() {
 						<div className={styles.error}>{formik.errors.lastName}</div>
 					)}
 				</div>
+
+				<div>
+					<label>E-mail</label>
+					<input
+						id="email"
+						name="email"
+						placeholder="E-mail"
+						value={formik.values.email}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
+					{formik.errors.email && formik.touched.email && (
+						<div className={styles.error}>{formik.errors.email}</div>
+					)}
+				</div>
+
+				<div>
+					<label>Password</label>
+					<input
+						id="password"
+						name="password"
+						placeholder="Password"
+						type="password"
+						value={formik.values.password}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
+					{formik.errors.password && formik.touched.password && (
+						<div className={styles.error}>{formik.errors.password}</div>
+					)}
+				</div>
+
+				<div>
+					<label>Password Confirm</label>
+					<input
+						id="passwordConfirm"
+						name="passwordConfirm"
+						placeholder="Password Confirm"
+						type="password"
+						value={formik.values.passwordConfirm}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
+					{formik.errors.passwordConfirm && formik.touched.passwordConfirm && (
+						<div className={styles.error}>{formik.errors.passwordConfirm}</div>
+					)}
+				</div>
+
 				<button type="submit" disabled={formik.isSubmitting}>
 					{formik.isSubmitting ? "Loading..." : "Submit"}
 				</button>
