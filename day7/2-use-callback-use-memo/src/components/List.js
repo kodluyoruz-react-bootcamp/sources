@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 function List({ users }) {
-	console.log("re-render");
+	console.log("List re-render");
 
 	return (
 		<div>
