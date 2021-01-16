@@ -6,8 +6,9 @@ import { API_ENDPOINT } from "../constants";
 const WeatherContext = createContext(null);
 
 export const WeatherProvider = ({ children }) => {
-	const [selected, setSelected] = useState("istanbul");
+	const [selected, setSelected] = useState("İstanbul");
 	const [weather, setWeather] = useState(null);
+	const [currentLocationData, setCurrentLocationData] = useState(null);
 
 	useEffect(() => {
 		const url = `${API_ENDPOINT}/forecast/daily?q=${selected}&appid=${process.env.REACT_APP_API_KEY}&units=metric`;
@@ -19,6 +20,8 @@ export const WeatherProvider = ({ children }) => {
 		selected,
 		setSelected,
 		weather,
+		currentLocationData,
+		setCurrentLocationData,
 	};
 
 	return (

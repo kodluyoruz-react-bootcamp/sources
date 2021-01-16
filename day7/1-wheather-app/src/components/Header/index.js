@@ -5,14 +5,21 @@ import { cities } from "../../constants";
 import WeatherContext from "../../contexts/WeatherContext";
 
 function Header() {
-	const data = useContext(WeatherContext);
-	console.log(data);
+	const { selected, setSelected } = useContext(WeatherContext);
+
+	const handleOnChange = (e) => {
+		setSelected(e.target.value);
+	};
 
 	return (
 		<div>
-			<select style={{ padding: 10 }}>
+			<select
+				style={{ padding: 10 }}
+				onChange={handleOnChange}
+				defaultValue={selected}
+			>
 				{cities.map((city) => (
-					<option key={city.id} value={city.id}>
+					<option key={city.id} value={city.name}>
 						{city.name}
 					</option>
 				))}
