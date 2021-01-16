@@ -6,6 +6,7 @@ import WeatherContext from "../../contexts/WeatherContext";
 
 function Header() {
 	const data = useContext(WeatherContext);
+	console.log(data);
 
 	return (
 		<div>
