@@ -11,6 +11,9 @@
 	"license": "ISC",
 	"dependencies": {
 		"express": "^4.17.1",
+		"lodash": "^4.17.20",
+		"redis": "^3.0.2",
+		"shortid": "^2.2.16",
 		"socket.io": "^3.1.0"
 	}
 }

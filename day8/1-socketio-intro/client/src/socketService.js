@@ -28,3 +28,12 @@ export const subscribeToChat = (cb) => {
 		cb(message);
 	});
 };
+
+export const subscribeInitialMessages = (cb) => {
+	if (!socket) return true;
+
+	socket.on("message-list", (data) => {
+		console.log("message list received: ", data);
+		cb(data);
+	});
+};

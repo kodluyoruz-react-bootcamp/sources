@@ -2,6 +2,8 @@ const app = require("express")();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 
+const Messages = require("./lib/Messages");
+
 app.get("/", (req, res) => {
 	res.end("Merhaba Socket.IO");
 });
@@ -9,9 +11,16 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
 	console.log("a user connected");
 
+	Messages.list((data) => {
+		console.log(data);
+		io.emit("message-list", data);
+	});
+
 	socket.on("new-message", (message) => {
 		console.log(message);
-		socket.broadcast.emit('receive-message', message)
+		Messages.upsert({ message });
+
+		socket.broadcast.emit("receive-message", message);
 	});
 
 	socket.on("disconnect", () => console.log("a user disconnected"));
