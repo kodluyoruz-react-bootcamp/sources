@@ -9,9 +9,8 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
 	console.log("a user connected");
 
-	socket.broadcast.emit("new-user", {
-		title: "Bir kullanıcı katıldı.",
-		joinDate: new Date(),
+	socket.on("new-message", (message) => {
+		console.log(message);
 	});
 
 	socket.on("disconnect", () => console.log("a user disconnected"));

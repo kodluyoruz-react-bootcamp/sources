@@ -1,0 +1,15 @@
+.chatlist {
+  border: solid 1px #ddd;
+  padding: 10px;
+  height: 400px;
+  width: 100%;
+  margin: 40px auto 0 auto;
+  background-color: cornsilk;
+}
+
+.textInput {
+  border: solid 1px #ddd;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
