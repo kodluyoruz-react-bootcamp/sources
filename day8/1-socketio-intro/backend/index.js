@@ -13,7 +13,7 @@ io.on("connection", (socket) => {
 
 	Messages.list((data) => {
 		console.log(data);
-		io.emit("message-list", data);
+		socket.emit("message-list", data);
 	});
 
 	socket.on("new-message", (message) => {

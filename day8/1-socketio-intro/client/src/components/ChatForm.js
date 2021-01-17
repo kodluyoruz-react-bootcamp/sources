@@ -13,7 +13,7 @@ function ChatForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		sendMessage(message);
-		setMessages([...messages, { message, fromMe: true }]);
+		setMessages([{ message, fromMe: true }, ...messages]);
 		setMessage("");
 	};
 
