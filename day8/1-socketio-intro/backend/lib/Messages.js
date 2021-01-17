@@ -37,6 +37,6 @@ Messages.prototype.list = function (callback) {
 			messageList.push(JSON.parse(messages[message]));
 		}
 
-		return callback(_.orderBy(messageList, "when", "asc"));
+		return callback(_.orderBy(messageList, "when", "desc"));
 	});
 };
