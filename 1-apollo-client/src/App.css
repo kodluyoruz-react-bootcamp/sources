@@ -17,7 +17,8 @@ a:hover {
 
 .App {
   background-color: #282c34;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   padding: 10px;
 }
 
@@ -45,4 +46,26 @@ a:hover {
 .postDate {
   color: #e2e2e2;
   font-size: 12px;
+}
+
+button {
+  color: #000;
+}
+
+.postMedia {
+  width: 100%;
+}
+
+.postTitle {
+  margin-bottom: 0 !important;
+}
+
+.postDate {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.description {
+  font-size: 20px;
+  color: #f1f1f1;
 }

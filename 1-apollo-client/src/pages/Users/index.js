@@ -6,7 +6,7 @@ import { GET_USERS } from "./queries";
 import UserList from "./UserList";
 
 function Users() {
-	const { loading, error, data } = useQuery(GET_USERS);
+	const { loading, error, data, refetch } = useQuery(GET_USERS);
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error :(</p>;
@@ -14,6 +14,7 @@ function Users() {
 	return (
 		<div>
 			<UserList users={data.users} />
+			<button onClick={() => refetch()}>Refetch!</button>
 		</div>
 	);
 }

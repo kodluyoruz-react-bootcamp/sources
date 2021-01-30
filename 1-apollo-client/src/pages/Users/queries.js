@@ -6,8 +6,11 @@ export const GET_USERS = gql`
 			id
 			name
 			surname
+			posts_aggregate(where: { isPublished: { _eq: true } }) {
+				aggregate {
+					count
+				}
+			}
 		}
 	}
 `;
-
-

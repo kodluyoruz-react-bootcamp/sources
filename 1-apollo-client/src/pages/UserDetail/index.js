@@ -21,8 +21,6 @@ function UserDetail() {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error :(</p>;
 
-	console.log(data);
-
 	const { name, age, surname, created_at, posts } = data.users_by_pk;
 
 	return (

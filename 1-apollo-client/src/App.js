@@ -1,9 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Home from "./pages/Home/";
-import Users from "./pages/Users/";
-import UserDetail from "./pages/UserDetail/";
+import Home from "./pages/Home";
+import Users from "./pages/Users";
+import UserDetail from "./pages/UserDetail";
+import PostDetail from "./pages/PostDetail";
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<hr />
 
 				<Switch>
+					<Route path="/post/:id" component={PostDetail} />
 					<Route path="/users" exact component={Users} />
 					<Route path="/users/:id" component={UserDetail} />
 					<Route path="/" component={Home} />
