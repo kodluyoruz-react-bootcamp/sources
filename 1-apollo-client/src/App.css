@@ -1,0 +1,35 @@
+* {
+  color: #fff;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.App {
+  background-color: #282c34;
+  height: 100vh;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+}
+
+.menu li {
+  padding: 5px;
+}
+
+.menu li a {
+  text-decoration: none;
+}
