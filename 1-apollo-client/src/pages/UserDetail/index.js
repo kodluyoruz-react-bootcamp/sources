@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_DETAIL } from "./queries";
 
+import Posts from "../../components/Posts";
+
 function UserDetail() {
 	const { id } = useParams();
 
@@ -21,14 +23,16 @@ function UserDetail() {
 
 	console.log(data);
 
-	const { name, age, surname, created_at } = data.users_by_pk;
+	const { name, age, surname, created_at, posts } = data.users_by_pk;
 
 	return (
 		<div>
-			<h2>
+			<h2 className="username">
 				{name} {surname} ({age})
 			</h2>
 			<TimeAgo date={created_at} />
+
+			<Posts posts={posts} />
 		</div>
 	);
 }

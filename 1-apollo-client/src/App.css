@@ -33,3 +33,16 @@ a:hover {
 .menu li a {
   text-decoration: none;
 }
+
+.username {
+  color: #e4e153;
+}
+
+.postlist {
+  padding-left: 20px;
+}
+
+.postDate {
+  color: #e2e2e2;
+  font-size: 12px;
+}

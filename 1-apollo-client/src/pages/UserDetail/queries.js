@@ -8,8 +8,13 @@ export const GET_USER_DETAIL = gql`
 			surname
 			age
 			created_at
-			posts {
+			posts(
+				where: { isPublished: { _eq: true } }
+				order_by: { created_at: desc }
+			) {
+				id
 				title
+				created_at
 			}
 		}
 	}
