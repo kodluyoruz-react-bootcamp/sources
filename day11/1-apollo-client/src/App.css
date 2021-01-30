@@ -1,0 +1,71 @@
+* {
+  color: #fff;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  height: 100%;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+}
+
+.menu li {
+  padding: 5px;
+}
+
+.menu li a {
+  text-decoration: none;
+}
+
+.username {
+  color: #e4e153;
+}
+
+.postlist {
+  padding-left: 20px;
+}
+
+.postDate {
+  color: #e2e2e2;
+  font-size: 12px;
+}
+
+button {
+  color: #000;
+}
+
+.postMedia {
+  width: 100%;
+}
+
+.postTitle {
+  margin-bottom: 0 !important;
+}
+
+.postDate {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.description {
+  font-size: 20px;
+  color: #f1f1f1;
+}
