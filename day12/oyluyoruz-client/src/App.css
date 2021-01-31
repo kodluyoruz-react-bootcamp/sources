@@ -1,0 +1,9 @@
+input[type="text"] {
+  padding: 10px;
+  font-size: 18px;
+  min-width: 300px;
+}
+
+button {
+  padding: 10px;
+}
