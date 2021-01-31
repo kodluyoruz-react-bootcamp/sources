@@ -1,19 +1,32 @@
 import { useState } from "react";
+import { useMutation } from "@apollo/client";
+
+import { NEW_QUESTION } from "./queries";
 
 function New() {
+	const [addQuestion, { data }] = useMutation(NEW_QUESTION);
+
 	const [question, setQuestion] = useState("");
-	const [options, setOptions] = useState(["", ""]);
+	const [options, setOptions] = useState([{ title: "a" }, { title: "b" }]);
 
 	const handleChangeOption = ({ target }) => {
 		const newArray = options;
-		newArray[target.id] = target.value;
+		newArray[target.id].title = target.value;
 
 		setOptions([...newArray]);
 	};
 
 	const handleCreate = () => {
-		console.log(question);
-		console.log(options);
+		addQuestion({
+			variables: {
+				object: {
+					title: question,
+					options: {
+						data: options,
+					},
+				},
+			},
+		});
 	};
 
 	return (
@@ -32,13 +45,15 @@ function New() {
 						type="text"
 						placeholder="Enter poll option"
 						id={key}
-						value={option}
+						value={option.title}
 						onChange={handleChangeOption}
 					/>
 				</div>
 			))}
 
-			<button onClick={() => setOptions([...options, ""])}>New Option</button>
+			<button onClick={() => setOptions([...options, { title: "" }])}>
+				New Option
+			</button>
 			<button onClick={handleCreate}>Create Poll</button>
 		</div>
 	);
