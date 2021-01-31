@@ -43,6 +43,11 @@ function QuestionDetail() {
 		questions_by_pk: { options, title },
 	} = data;
 
+	const total = options.reduce(
+		(t, value) => t + value.votes_aggregate.aggregate.count,
+		0
+	);
+
 	return (
 		<div>
 			<h2>{title}</h2>
@@ -61,15 +66,26 @@ function QuestionDetail() {
 					{isVoted && (
 						<>
 							<div>
-								<progress id="file" value="32" max="100">
-									32%
-								</progress>
+								<progress
+									id="file"
+									value={option.votes_aggregate.aggregate.count}
+									max={total}
+								/>
 
 								<span className="voteCount">
 									{option.votes_aggregate.aggregate.count}{" "}
 									{option.votes_aggregate.aggregate.count < 2
 										? "vote"
 										: "votes"}
+								</span>
+
+								<span>
+									(
+									{(
+										(option.votes_aggregate.aggregate.count * 100) /
+										(total === 0 ? 1 : total)
+									).toFixed(2)}
+									%)
 								</span>
 							</div>
 						</>

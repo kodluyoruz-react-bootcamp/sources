@@ -3,10 +3,12 @@ import { useMutation } from "@apollo/client";
 
 import { NEW_QUESTION } from "./queries";
 
+import { Redirect } from "react-router-dom";
+
 const initialOptions = [{ title: "" }, { title: "" }];
 
 function New() {
-	const [addQuestion, { loading }] = useMutation(NEW_QUESTION, {
+	const [addQuestion, { loading, data }] = useMutation(NEW_QUESTION, {
 		onCompleted: () => {
 			setQuestion("");
 			setOptions(initialOptions);
@@ -39,6 +41,11 @@ function New() {
 			},
 		});
 	};
+
+	const questionId = data?.insert_questions_one.id;
+	if (questionId) {
+		return <Redirect to={`/q/${questionId}`} />;
+	}
 
 	return (
 		<div>
