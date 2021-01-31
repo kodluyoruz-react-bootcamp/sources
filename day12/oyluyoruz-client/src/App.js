@@ -7,11 +7,11 @@ import Questions from "./pages/Questions";
 
 function App() {
 	return (
-		<div>
+		<div className="app">
 			<Router>
 				<div>
 					<nav>
-						<ul>
+						<ul className="menu">
 							<li>
 								<Link to="/">Questions</Link>
 							</li>
@@ -20,11 +20,14 @@ function App() {
 							</li>
 						</ul>
 					</nav>
+					<hr />
 
-					<Switch>
-						<Route path="/" exact component={Questions} />
-						<Route path="/new" component={New} />
-					</Switch>
+					<div className="content">
+						<Switch>
+							<Route path="/" exact component={Questions} />
+							<Route path="/new" component={New} />
+						</Switch>
+					</div>
 				</div>
 			</Router>
 		</div>

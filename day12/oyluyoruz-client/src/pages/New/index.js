@@ -3,11 +3,18 @@ import { useMutation } from "@apollo/client";
 
 import { NEW_QUESTION } from "./queries";
 
+const initialOptions = [{ title: "" }, { title: "" }];
+
 function New() {
-	const [addQuestion, { data }] = useMutation(NEW_QUESTION);
+	const [addQuestion, { data, loading, error }] = useMutation(NEW_QUESTION, {
+		onCompleted: () => {
+			setQuestion("");
+			setOptions(initialOptions);
+		},
+	});
 
 	const [question, setQuestion] = useState("");
-	const [options, setOptions] = useState([{ title: "a" }, { title: "b" }]);
+	const [options, setOptions] = useState(initialOptions);
 
 	const handleChangeOption = ({ target }) => {
 		const newArray = options;
@@ -17,12 +24,16 @@ function New() {
 	};
 
 	const handleCreate = () => {
+		const filledOptions = options.filter((option) => option.title !== "");
+
+		if (question === "" || filledOptions.length < 2) return;
+
 		addQuestion({
 			variables: {
 				object: {
 					title: question,
 					options: {
-						data: options,
+						data: filledOptions,
 					},
 				},
 			},
@@ -36,6 +47,7 @@ function New() {
 				placeholder="Type your question here"
 				value={question}
 				onChange={({ target }) => setQuestion(target.value)}
+				disabled={loading}
 			/>
 
 			<h2>Options</h2>
@@ -47,6 +59,7 @@ function New() {
 						id={key}
 						value={option.title}
 						onChange={handleChangeOption}
+						disabled={loading}
 					/>
 				</div>
 			))}
@@ -54,7 +67,9 @@ function New() {
 			<button onClick={() => setOptions([...options, { title: "" }])}>
 				New Option
 			</button>
-			<button onClick={handleCreate}>Create Poll</button>
+			<button onClick={handleCreate} disabled={loading}>
+				Create Poll
+			</button>
 		</div>
 	);
 }
