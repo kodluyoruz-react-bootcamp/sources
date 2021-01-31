@@ -3,11 +3,11 @@ import { getMainDefinition } from "@apollo/client/utilities";
 import { WebSocketLink } from "@apollo/client/link/ws";
 
 const httpLink = new HttpLink({
-	uri: `https://oyluyoruz.hasura.app/v1/graphql`,
+	uri: `https://oyluyoruz.rocknjs.com/v1/graphql`,
 });
 
 const webSocketLink = new WebSocketLink({
-	uri: `wss://oyluyoruz.hasura.app/v1/graphql`,
+	uri: `wss://oyluyoruz.rocknjs.com/v1/graphql`,
 	options: {
 		reconnect: true,
 	},
