@@ -32,3 +32,14 @@ button {
 .content {
   padding: 15px 0;
 }
+
+label {
+  font-size: 18px;
+  padding: 5px 0;
+  display: block;
+}
+
+.voteCount {
+  padding: 0 10px;
+  font-size: 16px;
+}

@@ -8,6 +8,9 @@ const httpLink = new HttpLink({
 
 const webSocketLink = new WebSocketLink({
 	uri: `wss://oyluyoruz.hasura.app/v1/graphql`,
+	options: {
+		reconnect: true,
+	},
 });
 
 const link = split(
