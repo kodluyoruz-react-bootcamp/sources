@@ -3,6 +3,8 @@ import React from "react";
 import { useSubscription } from "@apollo/client";
 import { QUESTION_SUBSCRIPTION } from "./queries";
 
+import { Link } from "react-router-dom";
+
 function Questions() {
 	const { data, loading } = useSubscription(QUESTION_SUBSCRIPTION);
 
@@ -16,7 +18,7 @@ function Questions() {
 
 			{data.questions.map((q, i) => (
 				<div key={i}>
-					<span>{q.title}</span>
+					<Link to={`/q/${q.id}`}>{q.title}</Link>
 				</div>
 			))}
 		</div>

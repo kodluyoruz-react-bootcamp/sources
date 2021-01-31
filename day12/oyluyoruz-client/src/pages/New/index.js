@@ -6,7 +6,7 @@ import { NEW_QUESTION } from "./queries";
 const initialOptions = [{ title: "" }, { title: "" }];
 
 function New() {
-	const [addQuestion, { data, loading, error }] = useMutation(NEW_QUESTION, {
+	const [addQuestion, { loading }] = useMutation(NEW_QUESTION, {
 		onCompleted: () => {
 			setQuestion("");
 			setOptions(initialOptions);

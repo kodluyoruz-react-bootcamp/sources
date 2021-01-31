@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import New from "./pages/New";
 import Questions from "./pages/Questions";
+import QuestionDetail from "./pages/QuestionDetail";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 					<div className="content">
 						<Switch>
 							<Route path="/" exact component={Questions} />
+							<Route path="/q/:id" component={QuestionDetail} />
 							<Route path="/new" component={New} />
 						</Switch>
 					</div>
